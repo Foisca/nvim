@@ -26,12 +26,6 @@ endif
 source ~/.config/nvim/_machine_specific.vim
 
 
-" ====================
-" === Editor Setup ===
-" ====================
-" ===
-" === System
-" ===
 "set clipboard=unnamedplus
 let &t_ut=''
 set autochdir
@@ -193,19 +187,6 @@ cnoremap <M-w> <S-Right>
 " ===
 noremap - N
 noremap = n
-
-
-" ===
-" === Window management
-" ===
-" Use <space> + new arrow keys for moving the cursor around windows
-noremap <LEADER>w <C-w>w
-noremap <LEADER>u <C-w>k
-noremap <LEADER>e <C-w>j
-noremap <LEADER>n <C-w>h
-noremap <LEADER>i <C-w>l
-
-" Disable the default s key
 noremap s <nop>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
@@ -331,9 +312,6 @@ endfunc
 call plug#begin('~/.config/nvim/plugged')
 
 
-" Testing my own plugin
-" Plug 'theniceboy/vim-calc'
-
 " Pretty Dress
 Plug 'bling/vim-bufferline'
 Plug 'bpietravalle/vim-bolt'
@@ -384,27 +362,6 @@ Plug 'cohama/agit.vim'
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
 
-" Tex
-" Plug 'lervag/vimtex'
-
-" CSharp
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'ctrlpvim/ctrlp.vim' , { 'for': ['cs', 'vim-plug'] } " omnisharp-vim dependency
-
-" HTML, CSS, JavaScript, Typescript, PHP, JSON, etc.
-Plug 'elzr/vim-json'
-Plug 'neoclide/jsonc.vim'
-Plug 'othree/html5.vim'
-Plug 'alvan/vim-closetag'
-" Plug 'hail2u/vim-css3-syntax' " , { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-" Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
-" Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-" Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-" Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-"Plug 'jaxbot/browserlink.vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'posva/vim-vue'
 
 " Go
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
@@ -412,7 +369,6 @@ Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 " Python
 " Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
 "Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
@@ -466,9 +422,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Find & Replace
 Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
 
-" Documentation
-"Plug 'KabbAmine/zeavim.vim' " <LEADER>z to find doc
-
 " Mini Vim-APP
 "Plug 'jceb/vim-orgmode'
 "Plug 'mhinz/vim-startify'
@@ -486,9 +439,6 @@ Plug 'wincent/terminus'
 
 " Other useful utilities
 Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
-" Plug 'makerj/vim-pdf'
-"Plug 'xolox/vim-session'
-"Plug 'xolox/vim-misc' " vim-session dep
 
 " Dependencies
 " Plug 'MarcWeber/vim-addon-mw-utils'
@@ -562,23 +512,18 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ===
 let g:coc_global_extensions = [
 	\ 'coc-actions',
-	\ 'coc-css',
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
 	\ 'coc-flutter-tools',
 	\ 'coc-gitignore',
-	\ 'coc-html',
-	\ 'coc-json',
 	\ 'coc-lists',
 	\ 'coc-prettier',
-	\ 'coc-pyright',
 	\ 'coc-python',
 	\ 'coc-snippets',
 	\ 'coc-sourcekit',
 	\ 'coc-stylelint',
 	\ 'coc-syntax',
 	\ 'coc-tasks',
-	\ 'coc-todolist',
 	\ 'coc-translator',
 	\ 'coc-tslint-plugin',
 	\ 'coc-tsserver',
