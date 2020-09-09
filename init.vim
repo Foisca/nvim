@@ -4,7 +4,7 @@
 "| |  | | | |   | |\  | \ V /  | || |  | |  _ <| |___
 "|_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|
 
-
+imap kj <esc>
 " ===
 " === Auto load for first time uses
 " ===
@@ -724,16 +724,6 @@ let g:far#mapping = {
 
 
 " ===
-" === vim-calc
-" ===
-"noremap <LEADER>a :call Calc()<CR>
-" Testing
-"if !empty(glob('~/Github/vim-calc/vim-calc.vim'))
-"source ~/Github/vim-calc/vim-calc.vim
-"endif
-
-
-" ===
 " === Bullets.vim
 " ===
 " let g:bullets_set_mappings = 0
@@ -1124,7 +1114,7 @@ noremap <c-y> :NR<CR>
 " ===
 " === any-jump
 " ===
-nnoremap j :AnyJump<CR>
+nnoremap pp :AnyJump<CR>
 let g:any_jump_window_width_ratio  = 0.8
 let g:any_jump_window_height_ratio = 0.9
 
