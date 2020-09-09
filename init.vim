@@ -291,10 +291,6 @@ func! CompileRunGcc()
 		:term ./%<
 	elseif &filetype == 'sh'
 		:!time bash %
-	elseif &filetype == 'python'
-		set splitbelow
-		:sp
-		:term python3 %
 	elseif &filetype == 'markdown'
 		exec "InstantMarkdownPreview"
 	elseif &filetype == 'go'
@@ -339,7 +335,6 @@ Plug 'pechorin/any-jump.vim'
 Plug 'liuchengxu/vista.vim'
 
 " Debugger
-" Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go'}
 
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -365,13 +360,6 @@ Plug 'Chiel92/vim-autoformat'
 
 " Go
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
-
-" Python
-" Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
-"Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
-"Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
-Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 
 " Flutter
 Plug 'dart-lang/dart-vim-plugin'
@@ -518,7 +506,6 @@ let g:coc_global_extensions = [
 	\ 'coc-gitignore',
 	\ 'coc-lists',
 	\ 'coc-prettier',
-	\ 'coc-python',
 	\ 'coc-snippets',
 	\ 'coc-sourcekit',
 	\ 'coc-stylelint',
