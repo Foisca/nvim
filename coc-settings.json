@@ -152,7 +152,6 @@
 	"javascript.suggest.names": true,
 	"javascript.suggestionActions.enabled": true,
 	"json.format.enable": true,
-	"eslint.autoFixOnSave": false,
 	"prettier.printWidth": 100,
 	"prettier.eslintIntegration": true,
 	"prettier.disableLanguages": [],
@@ -160,8 +159,6 @@
 	"prettier.useTabs": true,
 	"prettier.trailingComma": "all",
 	"prettier.singleQuote": false,
-	"todolist.autoUpload": true,
-	"todolist.promptForReminder": false,
 	"coc-actions.hideCursor": false,
 	"coc-actions.showActionKind": true,
 	"diagnostic-languageserver.filetypes": {

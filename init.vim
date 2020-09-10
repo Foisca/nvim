@@ -3,7 +3,9 @@
 "| |\/| |\ V /  |  \| |\ \ / / | || |\/| | |_) | |
 "| |  | | | |   | |\  | \ V /  | || |  | |  _ <| |___
 "|_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|
-
+"
+" Foisca's NeoVim init.vim file
+"
 imap kj <esc>
 " ===
 " === Auto load for first time uses
@@ -24,7 +26,6 @@ set autochdir
 " === Editor behavior
 " ===
 set number
-set relativenumber
 set cursorline
 set hidden
 set noexpandtab
@@ -106,7 +107,7 @@ let mapleader=" "
 noremap ; :
 
 " Save & quit
-noremap Q :q<CR>
+noremap Q :q!<CR>
 noremap <C-q> :qa<CR>
 noremap S :w<CR>
 
@@ -117,7 +118,7 @@ noremap H 5h
 noremap L 5l
 
 " Open the vimrc file anytime
-noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
+noremap <LEADER>rr :e ~/.config/nvim/init.vim<CR>
 
 
 
@@ -458,12 +459,10 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ===
 let g:coc_global_extensions = [
 	\ 'coc-actions',
-	\ 'coc-css',
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
 	\ 'coc-flutter-tools',
 	\ 'coc-gitignore',
-	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-lists',
 	\ 'coc-prettier',
@@ -472,14 +471,7 @@ let g:coc_global_extensions = [
 	\ 'coc-snippets',
 	\ 'coc-sourcekit',
 	\ 'coc-stylelint',
-	\ 'coc-syntax',
-	\ 'coc-tasks',
-	\ 'coc-todolist',
-	\ 'coc-translator',
-	\ 'coc-tslint-plugin',
-	\ 'coc-tsserver',
 	\ 'coc-vimlsp',
-	\ 'coc-vetur',
 	\ 'coc-yaml',
 	\ 'coc-yank']
 
@@ -526,7 +518,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
-nmap tt :CocCommand explorer<CR>
+nmap nt :CocCommand explorer<CR>
 " coc-translator
 nmap ts <Plug>(coc-translator-p)
 " Remap for do codeAction of selected region
@@ -535,10 +527,9 @@ function! s:cocActionsOpenFromSelected(type) abort
 endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-" coctodolist
-nnoremap <leader>tn :CocCommand todolist.create<CR>
-nnoremap <leader>tl :CocList todolist<CR>
-nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload<CR>
+
+
+
 " coc-tasks
 noremap <silent> <leader>ts :CocList tasks<CR>
 " coc-snippets
@@ -547,7 +538,7 @@ vmap <C-e> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-e>'
 let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
-let g:snips_author = 'David Chen'
+let g:snips_author = 'Foisca'
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 
@@ -578,33 +569,9 @@ let g:ctrlp_cmd = 'CtrlP'
 
 
 " ===
-" === vim-bookmarks
-" ===
-" let g:bookmark_no_default_key_mappings = 1
-" nmap mt <Plug>BookmarkToggle
-" nmap ma <Plug>BookmarkAnnotate
-" nmap ml <Plug>BookmarkShowAll
-" nmap mi <Plug>BookmarkNext
-" nmap mn <Plug>BookmarkPrev
-" nmap mC <Plug>BookmarkClear
-" nmap mX <Plug>BookmarkClearAll
-" nmap mu <Plug>BookmarkMoveUp
-" nmap me <Plug>BookmarkMoveDown
-" nmap <Leader>g <Plug>BookmarkMoveToLine
-" let g:bookmark_save_per_working_dir = 1
-" let g:bookmark_auto_save = 1
-" let g:bookmark_highlight_lines = 1
-" let g:bookmark_manage_per_buffer = 1
-" let g:bookmark_save_per_working_dir = 1
-" let g:bookmark_center = 1
-" let g:bookmark_auto_close = 1
-" let g:bookmark_location_list = 1
-
-
-" ===
 " === Undotree
 " ===
-noremap L :UndotreeToggle<CR>
+noremap <LEADER>U :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -617,20 +584,6 @@ function g:Undotree_CustomMap()
 	nmap <buffer> U 5<plug>UndotreeNextState
 	nmap <buffer> E 5<plug>UndotreePreviousState
 endfunc
-
-
-" ==
-" == vim-multiple-cursor
-" ==
-"let g:multi_cursor_use_default_mapping = 0
-"let g:multi_cursor_start_word_key = '<c-k>'
-"let g:multi_cursor_select_all_word_key = '<a-k>'
-"let g:multi_cursor_start_key = 'g<c-k>'
-"let g:multi_cursor_select_all_key = 'g<a-k>'
-"let g:multi_cursor_next_key = '<c-k>'
-"let g:multi_cursor_prev_key = '<c-p>'
-"let g:multi_cursor_skip_key = '<C-s>'
-"let g:multi_cursor_quit_key = '<Esc>'
 
 
 " ===
@@ -888,24 +841,6 @@ let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first = 1
 noremap to :XTabCycleMode<CR>
 noremap \p :echo expand('%:p')<CR>
-
-
-" ===
-" === vim-session
-" ===
-"let g:session_directory = $HOME."/.config/nvim/tmp/sessions"
-"let g:session_autosave = 'no'
-"let g:session_autoload = 'no'
-"let g:session_command_aliases = 1
-"set sessionoptions-=buffers
-"set sessionoptions-=options
-"noremap sl :OpenSession<CR>
-"noremap sS :SaveSession<CR>
-"noremap ss :SaveSession 
-"noremap sc :SaveSession<CR>:CloseSession<CR>:q<CR>
-"noremap so :OpenSession default<CR>
-"noremap sD :DeleteSession<CR>
-""noremap sA :AppendTabSession<CR>
 
 
 " ===
