@@ -488,18 +488,23 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ===
 let g:coc_global_extensions = [
 	\ 'coc-actions',
+	\ 'coc-css',
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
-	\ 'coc-todolist ',
 	\ 'coc-flutter-tools',
 	\ 'coc-gitignore',
+	\ 'coc-html',
+	\ 'coc-json',
 	\ 'coc-lists',
 	\ 'coc-prettier',
+	\ 'coc-pyright',
+	\ 'coc-python',
 	\ 'coc-snippets',
 	\ 'coc-sourcekit',
 	\ 'coc-stylelint',
 	\ 'coc-syntax',
 	\ 'coc-tasks',
+	\ 'coc-todolist',
 	\ 'coc-translator',
 	\ 'coc-tslint-plugin',
 	\ 'coc-tsserver',
@@ -507,6 +512,8 @@ let g:coc_global_extensions = [
 	\ 'coc-vetur',
 	\ 'coc-yaml',
 	\ 'coc-yank']
+
+	
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
@@ -1138,10 +1145,3 @@ let g:agit_no_default_mappings = 1
 " === Necessary Commands to Execute
 " ===
 exec "nohlsearch"
-
-
-" Open the _machine_specific.vim file if it has just been created
-if has_machine_specific_file == 0
-	exec "e ~/.config/nvim/_machine_specific.vim"
-endif
-
