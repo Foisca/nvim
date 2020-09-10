@@ -490,6 +490,7 @@ let g:coc_global_extensions = [
 	\ 'coc-actions',
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
+	\ 'coc-todolist ',
 	\ 'coc-flutter-tools',
 	\ 'coc-gitignore',
 	\ 'coc-lists',
