@@ -275,7 +275,8 @@ func! CompileRunGcc()
 		exec "!time ./%<"
 	elseif &filetype == 'cpp'
 		set splitbelow
-		exec "!g++ -std=c++11 % -Wall -o %<"
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
 		:sp
 		:res -15
 		:term ./%<
@@ -287,6 +288,10 @@ func! CompileRunGcc()
 		set splitbelow
 		:sp
 		:term go run .
+	elseif &filetype == 'python'
+		set splitbelow
+		:sp
+		:term python3 %
 	endif
 endfunc
 
@@ -415,9 +420,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "color dracula
 "color one
 color deus
-"color gruvbox
 "let ayucolor="light"
-"color ayu
 "color xcodelighthc
 "set background=light
 "set cursorcolumn
@@ -459,10 +462,12 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ===
 let g:coc_global_extensions = [
 	\ 'coc-actions',
+	\ 'coc-css',
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
 	\ 'coc-flutter-tools',
 	\ 'coc-gitignore',
+	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-lists',
 	\ 'coc-prettier',
@@ -471,10 +476,18 @@ let g:coc_global_extensions = [
 	\ 'coc-snippets',
 	\ 'coc-sourcekit',
 	\ 'coc-stylelint',
+	\ 'coc-syntax',
+	\ 'coc-tasks',
+	\ 'coc-todolist',
+	\ 'coc-translator',
+	\ 'coc-tslint-plugin',
+	\ 'coc-tsserver',
 	\ 'coc-vimlsp',
+	\ 'coc-vetur',
+	\ 'coc-bookmark',
+	\ 'coc-marketplace',
 	\ 'coc-yaml',
 	\ 'coc-yank']
-
 	
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
@@ -973,7 +986,7 @@ noremap <c-y> :NR<CR>
 " ===
 " === any-jump
 " ===
-nnoremap pp :AnyJump<CR>
+nnoremap <LEADER>aj :AnyJump<CR>
 let g:any_jump_window_width_ratio  = 0.8
 let g:any_jump_window_height_ratio = 0.9
 
