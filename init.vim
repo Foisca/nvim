@@ -16,6 +16,14 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+"some source
+source ~/.config/nvim/cursor.vim
+source ~/.config/nvim/md-snippets.vim
+"source init.vim
+noremap <c-r> :source init.vim<cr>
+
+" Open the vimrc file anytime
+noremap <LEADER>rr :e ~/.config/nvim/init.vim<CR>
 
 "set clipboard=unnamedplus
 let &t_ut=''
@@ -25,6 +33,8 @@ set autochdir
 " ===
 " === Editor behavior
 " ===
+"
+set relativenumber
 set number
 set cursorline
 set hidden
@@ -61,7 +71,7 @@ set lazyredraw "same as above
 set visualbell
 silent !mkdir -p ~/.config/nvim/tmp/backup
 silent !mkdir -p ~/.config/nvim/tmp/undo
-"silent !mkdir -p ~/.config/nvim/tmp/sessions
+silent !mkdir -p ~/.config/nvim/tmp/sessions
 set backupdir=~/.config/nvim/tmp/backup,.
 set directory=~/.config/nvim/tmp/backup,.
 if has('persistent_undo')
@@ -119,11 +129,6 @@ noremap K 5k
 noremap H 5h
 noremap L 5l
 
-" Open the vimrc file anytime
-noremap <LEADER>rr :e ~/.config/nvim/init.vim<CR>
-
-
-
 " make Y to copy till the end of the line
 nnoremap Y y$
 
@@ -152,10 +157,6 @@ noremap \g :Git
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 " nnoremap <c-n> :tabe<CR>:-tabmove<CR>:term lazynpm<CR>
 
-
-source ~/.config/nvim/cursor.vim
-
-
 " ===
 " === Searching
 " ===
@@ -168,6 +169,13 @@ noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
 noremap sj :set splitbelow<CR>:split<CR>
 noremap sl :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sh :set splitright<CR>:vsplit<CR>
+
+" move between the screens
+noremap gl <c-w><right>
+noremap gh <c-w><left>
+noremap gj <c-w><down>
+noremap gk <c-w><up>
+
 
 " Resize splits with arrow keys
 noremap <down> :res +5<CR>
@@ -184,7 +192,7 @@ noremap sv <C-w>t<C-w>H
 noremap srh <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
 
-" Press <SPACE> + q to close the window below the current window
+"move between 
 
 
 " ===
@@ -196,15 +204,14 @@ noremap tn :tabe<CR>
 noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
 " Move the tabs with tmn and tmi
-noremap tmh :-tabmove<CR>
-noremap tml :+tabmove<CR>
+noremap tj :-tabmove<CR>
+noremap tk :+tabmove<CR>
 
 
 " ===
 " === Markdown Settings
 " ===
 " Snippets
-source ~/.config/nvim/md-snippets.vim
 " auto spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 
@@ -254,10 +261,11 @@ noremap <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
-		exec "!g++ % -o %<"
+		set splitbelow
+		exec "!gcc % -o %<"
 		exec "!time ./%<"
 	elseif &filetype == 'cpp'
-		set splitbelow
+		"set splitbelow
 		exec "!g++ % -o %<"
 		exec "!time ./%<"
 		:sp
@@ -647,18 +655,18 @@ let g:scrollstatus_size = 15
 " ===
 " === Ultisnips
 " ===
-" let g:tex_flavor = "latex"
-" inoremap <c-n> <nop>
-" let g:UltiSnipsExpandTrigger="<c-e>"
-" let g:UltiSnipsJumpForwardTrigger="<c-e>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-n>"
-" let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
-" silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
-" " Solve extreme insert-mode lag on macOS (by disabling autotrigger)
-" augroup ultisnips_no_auto_expansion
-"	 au!
-"	 au VimEnter * au! UltiSnips_AutoTrigger
-" augroup END
+ "let g:tex_flavor = "latex"
+ "inoremap <c-n> <nop>
+ "let g:UltiSnipsExpandTrigger="<c-e>"
+ "let g:UltiSnipsJumpForwardTrigger="<c-e>"
+ "let g:UltiSnipsJumpBackwardTrigger="<c-n>"
+ "let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
+ "silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
+ "" Solve extreme insert-mode lag on macOS (by disabling autotrigger)
+ "augroup ultisnips_no_auto_expansion
+	 "au!
+	 "au VimEnter * au! UltiSnips_AutoTrigger
+ "augroup END
 
 
 
