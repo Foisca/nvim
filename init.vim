@@ -23,12 +23,12 @@ source ~/.config/nvim/md-snippets.vim
 noremap <c-r> :source init.vim<cr>
 
 " Open the vimrc file anytime
-noremap <LEADER>rr :e ~/.config/nvim/init.vim<CR>
+noremap <c-s> :e ~/.config/nvim/init.vim<CR>
 
 "set clipboard=unnamedplus
 let &t_ut=''
 set autochdir
-
+noremap s <nop>
 
 " ===
 " === Editor behavior
@@ -162,7 +162,6 @@ noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 " ===
 noremap - N
 noremap = n
-noremap s <nop>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
 noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
