@@ -34,7 +34,7 @@ noremap s <nop>
 " === Editor behavior
 " ===
 "
-set relativenumber
+"set relativenumber
 set number
 set cursorline
 set hidden
@@ -175,7 +175,6 @@ noremap gh <c-w><left>
 noremap gj <c-w><down>
 noremap gk <c-w><up>
 
-
 " Resize splits with arrow keys
 noremap <down> :res +5<CR>
 noremap <up> :res -5<CR>
@@ -296,7 +295,12 @@ call plug#begin('~/.config/nvim/plugged')
 " Pretty Dress
 Plug 'bling/vim-bufferline'
 Plug 'bpietravalle/vim-bolt'
-Plug 'theniceboy/vim-deus'
+Plug 'ajmwagar/vim-deus'
+Plug 'rakr/vim-one'
+Plug 'mhartington/oceanic-next'
+Plug 'arzg/vim-colors-xcode'
+Plug 'liuchengxu/space-vim-theme'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 " Status line
 Plug 'theniceboy/eleline.vim'
@@ -304,8 +308,6 @@ Plug 'ojroques/vim-scrollstatus'
 
 
 " File navigation
-"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
@@ -332,8 +334,6 @@ Plug 'cohama/agit.vim'
 
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
-
-
 " Go
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
@@ -341,18 +341,12 @@ Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'f-person/pubspec-assist-nvim', { 'for' : ['pubspec.yaml'] }
 
-" Swift
-Plug 'keith/swift.vim'
-Plug 'arzg/vim-swift'
-
 " Markdown
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
 Plug 'dkarter/bullets.vim'
 
 " Editor Enhancement
-"Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi'
 Plug 'tomtom/tcomment_vim' " in <space>cn to comment a line
@@ -368,10 +362,8 @@ Plug 'rhysd/clever-f.vim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'AndrewRadev/splitjoin.vim'
 
-
 " Find & Replace
 Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
-
 
 " Other visual enhancement
 Plug 'ryanoasis/vim-devicons'
@@ -381,14 +373,8 @@ Plug 'wincent/terminus'
 
 " Other useful utilities
 Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
-
-" Dependencies
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'kana/vim-textobj-user'
-" Plug 'roxma/nvim-yarp'
-
-
 call plug#end()
+
 set re=0
 
 " experimental
@@ -408,19 +394,18 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "let g:one_allow_italics = 1
 
 "color dracula
-"color one
-color deus
-"let ayucolor="light"
+color one
+"color deus
+"color oceanic
 "color xcodelighthc
+"let ayucolor="light"
 "set background=light
-"set cursorcolumn
+set cursorcolumn
 
 hi NonText ctermfg=gray guifg=grey10
 "hi SpecialKey ctermfg=blue guifg=grey70
 
 " ===================== Start of Plugin Settings =====================
-
-
 " ===
 " === eleline.vim
 " ===
@@ -452,13 +437,10 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ===
 let g:coc_global_extensions = [
 			\ 'coc-actions',
-			\ 'coc-css',
 			\ 'coc-diagnostic',
 			\ 'coc-explorer',
 			\ 'coc-flutter-tools',
 			\ 'coc-gitignore',
-			\ 'coc-html',
-			\ 'coc-json',
 			\ 'coc-lists',
 			\ 'coc-prettier',
 			\ 'coc-pyright',
@@ -506,12 +488,12 @@ nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
 nnoremap <c-c> :CocCommand<CR>
 " Text Objects
-xmap kf <Plug>(coc-funcobj-i)
+xmap jf <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
-omap kf <Plug>(coc-funcobj-i)
+omap jf <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-xmap kc <Plug>(coc-classobj-i)
-omap kc <Plug>(coc-classobj-i)
+xmap jc <Plug>(coc-classobj-i)
+omap jc <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 " Useful commands
@@ -531,8 +513,6 @@ endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
-
-
 " coc-tasks
 noremap <silent> <leader>ts :CocList tasks<CR>
 " coc-snippets
@@ -543,19 +523,6 @@ let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
 let g:snips_author = 'Foisca'
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-
-
-" ===
-" === vim-instant-markdown
-" ===
-let g:instant_markdown_slow = 0
-let g:instant_markdown_autostart = 0
-" let g:instant_markdown_open_to_the_world = 1
-" let g:instant_markdown_allow_unsafe_content = 1
-" let g:instant_markdown_allow_external_content = 0
-" let g:instant_markdown_mathjax = 1
-let g:instant_markdown_autoscroll = 1
-
 
 " ===
 " === vim-table-mode
@@ -642,31 +609,8 @@ let g:vista#renderer#icons = {
 			\   "function": "\uf794",
 			\   "variable": "\uf71b",
 			\  }
-" function! NearestMethodOrFunction() abort
-"		return get(b:, 'vista_nearest_method_or_function', '')
-" endfunction
-" set statusline+=%{NearestMethodOrFunction()}
-" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 let g:scrollstatus_size = 15
-
-
-" ===
-" === Ultisnips
-" ===
- "let g:tex_flavor = "latex"
- "inoremap <c-n> <nop>
- "let g:UltiSnipsExpandTrigger="<c-e>"
- "let g:UltiSnipsJumpForwardTrigger="<c-e>"
- "let g:UltiSnipsJumpBackwardTrigger="<c-n>"
- "let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
- "silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
- "" Solve extreme insert-mode lag on macOS (by disabling autotrigger)
- "augroup ultisnips_no_auto_expansion
-	 "au!
-	 "au VimEnter * au! UltiSnips_AutoTrigger
- "augroup END
-
 
 
 " ===
@@ -794,28 +738,6 @@ map <LEADER>gy :Goyo<CR>
 " ===
 let g:vim_jsx_pretty_colorful_config = 1
 
-
-" ===
-" === fastfold
-" ===
-" nmap zuz <Plug>(FastFoldUpdate)
-" let g:fastfold_savehook = 1
-" let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-" let g:fastfold_fold_movement_commands = [']z', '[z', 'ze', 'zu']
-" let g:markdown_folding = 1
-" let g:tex_fold_enabled = 1
-" let g:vimsyn_folding = 'af'
-" let g:xml_syntax_folding = 1
-" let g:javaScript_fold = 1
-" let g:sh_fold_enabled= 7
-" let g:ruby_fold = 1
-" let g:perl_fold = 1
-" let g:perl_fold_blocks = 1
-" let g:r_syntax_folding = 1
-" let g:rust_fold = 1
-" let g:php_folding = 1
-
-
 " ===
 " === tabular
 " ===
@@ -845,14 +767,6 @@ let g:xtabline_settings.last_open_first = 1
 noremap to :XTabCycleMode<CR>
 noremap \p :echo expand('%:p')<CR>
 
-
-" ===
-" === context.vim
-" ===
-"let g:context_add_mappings = 0
-"noremap <leader>ct :ContextToggle<CR>
-
-
 " ===
 " === suda.vim
 " ===
@@ -868,15 +782,6 @@ let g:vimspector_enable_mappings = 'HUMAN'
 sign define vimspectorBP text=☛ texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
 sign define vimspectorPC text=🔶 texthl=SpellBad
-
-
-" ===
-" === reply.vim
-" ===
-"noremap <LEADER>rp :w<CR>:Repl<CR><C-\><C-N><C-w><C-h>
-"noremap <LEADER>rs :ReplSend<CR><C-w><C-l>a<CR><C-\><C-N><C-w><C-h>
-"noremap <LEADER>rt :ReplStop<CR>
-
 
 " ===
 " === vim-markdown-toc
@@ -995,7 +900,5 @@ let g:agit_no_default_mappings = 1
 " ===================== End of Plugin Settings =====================
 
 
-" ===
 " === Necessary Commands to Execute
-" ===
 exec "nohlsearch"
