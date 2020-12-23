@@ -59,8 +59,8 @@
 	"diagnostic.virtualText": true,
 	"codeLens.enable": true,
 	"list.previewHighlightGroup": "Statement",
-	"list.nextKeymap": "<C-j>",
-	"list.previousKeymap": "<C-k>",
+	"list.nextKeymap": "<C-e>",
+	"list.previousKeymap": "<C-u>",
 	"snippets.ultisnips.directories": [
 		"$HOME/.config/nvim/Ultisnips/",
 		"$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
@@ -110,6 +110,7 @@
 		"pp": "pasteFile",
 		"dD": "deleteForever",
 		"a": "addFile",
+		"k": "addFile",
 		"M": "addDirectory",
 		"cw": "rename",
 		".": "toggleHidden",
@@ -151,6 +152,7 @@
 	"javascript.suggest.names": true,
 	"javascript.suggestionActions.enabled": true,
 	"json.format.enable": true,
+	"eslint.autoFixOnSave": false,
 	"prettier.printWidth": 100,
 	"prettier.eslintIntegration": true,
 	"prettier.disableLanguages": [],
@@ -158,6 +160,8 @@
 	"prettier.useTabs": true,
 	"prettier.trailingComma": "all",
 	"prettier.singleQuote": false,
+	"todolist.autoUpload": true,
+	"todolist.promptForReminder": false,
 	"coc-actions.hideCursor": false,
 	"coc-actions.showActionKind": true,
 	"diagnostic-languageserver.filetypes": {
@@ -173,48 +177,20 @@
 		"elixir": "mix_format",
 		"eelixir": "mix_format"
 	},
-	"languageserver": {
-		"lua": {
-			"command": "lua-lsp",
-			"filetypes": ["lua"]
-		},
-		"swift": {
-			"command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
-			"args": [],
-			"filetypes": ["swift"],
-			"initializationOptions": {},
-			"settings": {}
-		},
-		"golang": {
-			"command": "gopls",
-			"rootPatterns": ["go.mod"],
-			"filetypes": ["go"],
-			"initializationOptions": {
-				"gocodeCompletionEnabled": true,
-				"diagnosticsEnabled": true,
-				"lintTool": "golint"
-			}
-		},
-		"bash": {
-			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"],
-			"ignoredRootPaths": []
-		},
-		"ccls": {
-			"command": "ccls",
-			"filetypes": ["c", "cc", "cpp", "c++", "cuda", "objc", "objcpp"],
-			"rootPatterns": [".ccls", ".ccls-root", "compile_commands.json", ".git/", ".hg/"],
-			"initializationOptions": {
-				"cache": {
-					"directory": "/tmp/ccls"
-				}
-			}
-		},
-		"clangd": {
-			"command": "clangd",
-			"rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+	"golang": {
+		"command": "gopls",
+		"rootPatterns": ["go.mod"],
+		"filetypes": ["go"],
+		"initializationOptions": {
+			"gocodeCompletionEnabled": true,
+			"diagnosticsEnabled": true,
+			"lintTool": "golint"
 		}
+	},
+	"bash": {
+		"command": "bash-language-server",
+		"args": ["start"],
+		"filetypes": ["sh"],
+		"ignoredRootPaths": []
 	}
 }
