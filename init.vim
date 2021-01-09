@@ -8,24 +8,18 @@ let mapleader=" "
 " Foisca's NeoVim init.vim file
 " ===
 " === Auto load for first time uses
-" ===
-"if empty(glob('~/.config/nvim/autoload/plug.vim'))
-	"silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-				"\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	"autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-"endif
 
 "some source
 source ~/.config/nvim/cursor.vim
 source ~/.config/nvim/md-snippets.vim
-source ~/.config/nvim/plugs_profile.vim
+source ~/.config/nvim/plug.vim
 source ~/.config/nvim/functions.vim
 "source init.vim
 noremap <c-r> :source $MYVIMRC<cr>:echom "NeoVimRC Sourced!"<cr>
 
 " Open the vimrc file anytime
 noremap <leader>ev :vsplit $MYVIMRC<cr>
-noremap <leader>ep :vsplit ~/.config/nvim/plugs_profile.vim<cr>
+noremap <leader>ep :vsplit ~/.config/nvim/plug.vim<cr>
 noremap <leader>ef :vsplit ~/.config/nvim/functions.vim<cr>
 
 "set clipboard=unnamedplus

@@ -30,8 +30,6 @@ Plug 'pechorin/any-jump.vim'
 Plug 'liuchengxu/vista.vim'
 
 " Auto Complete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'wellle/tmux-complete.vim'
 
 " Snippets
 " Plug 'SirVer/ultisnips'
@@ -82,7 +80,6 @@ Plug 'wincent/terminus'
 
 " Other useful utilities
 Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " theme
 Plug 'theniceboy/nvim-deus'
@@ -90,7 +87,6 @@ Plug 'theniceboy/eleline.vim'
 Plug 'ojroques/vim-scrollstatus'
 Plug 'sainnhe/sonokai'
 
-Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -166,99 +162,6 @@ nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
 nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 
 
-" ===
-" === coc.nvim
-" ===
-let g:coc_global_extensions = [
-			\ 'coc-actions',
-			\ 'coc-diagnostic',
-			\ 'coc-explorer',
-			\ 'coc-flutter-tools',
-			\ 'coc-gitignore',
-			\ 'coc-lists',
-			\ 'coc-prettier',
-			\ 'coc-pyright',
-			\ 'coc-python',
-			\ 'coc-snippets',
-			\ 'coc-sourcekit',
-			\ 'coc-stylelint',
-			\ 'coc-syntax',
-			\ 'coc-tasks',
-			\ 'coc-todolist',
-			\ 'coc-translator',
-			\ 'coc-tslint-plugin',
-			\ 'coc-tsserver',
-			\ 'coc-vimlsp',
-			\ 'coc-vetur',
-			\ 'coc-bookmark',
-			\ 'coc-marketplace',
-			\ 'coc-yaml',
-			\ 'coc-yank']
-
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <c-o> coc#refresh()
-function! Show_documentation()
-	call CocActionAsync('highlight')
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunction
-nnoremap <LEADER>h :call Show_documentation()<CR>
-
-nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<cr>
-nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
-nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
-nnoremap <c-c> :CocCommand<CR>
-" Text Objects
-xmap jf <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap jf <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-xmap jc <Plug>(coc-classobj-i)
-omap jc <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-" Useful commands
-nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>rn <Plug>(coc-rename)
-nmap nf :CocCommand explorer<CR>
-" coc-translator
-nmap ts <Plug>(coc-translator-p)
-" Remap for do codeAction of selected region
-function! s:cocActionsOpenFromSelected(type) abort
-	execute 'CocCommand actions.open ' . a:type
-endfunction
-xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-
-" coc-tasks
-noremap <silent> <leader>ts :CocList tasks<CR>
-" coc-snippets
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-e> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-e>'
-let g:coc_snippet_prev = '<c-n>'
-imap <C-e> <Plug>(coc-snippets-expand-jump)
-let g:snips_author = 'Foisca'
-autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-
-" ===
 " === vim-table-mode
 " ===
 noremap <LEADER>tm :TableModeToggle<CR>
@@ -335,8 +238,6 @@ let g:bullets_enabled_file_types = [
 " ===
 " === Vista.vim
 " ===
-noremap <LEADER>v :Vista coc<CR>
-noremap <c-t> :silent! Vista finder coc<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'ctags'
 let g:vista#renderer#enable_icon = 1
