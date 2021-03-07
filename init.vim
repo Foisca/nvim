@@ -1,4 +1,7 @@
 let mapleader=" "
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,gbk,latin1
 " __  ____   __  _   ___	 _____ __  __ ____   ____
 "|  \/  \ \ / / | \ | \ \   / /_ _|  \/  |  _ \ / ___|
 "| |\/| |\ V /  |  \| |\ \ / / | || |\/| | |_) | |
@@ -14,6 +17,7 @@ source ~/.config/nvim/cursor.vim
 source ~/.config/nvim/md-snippets.vim
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/functions.vim
+source ~/.config/nvim/config.vim
 "source init.vim
 noremap <c-r> :source $MYVIMRC<cr>:echom "NeoVimRC Sourced!"<cr>
 
@@ -21,6 +25,7 @@ noremap <c-r> :source $MYVIMRC<cr>:echom "NeoVimRC Sourced!"<cr>
 noremap <leader>ev :vsplit $MYVIMRC<cr>
 noremap <leader>ep :vsplit ~/.config/nvim/plug.vim<cr>
 noremap <leader>ef :vsplit ~/.config/nvim/functions.vim<cr>
+noremap <leader>ec :vsplit ~/.config/nvim/config.vim<cr>
 
 "set clipboard=unnamedplus
 let &t_ut=''
