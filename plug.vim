@@ -3,14 +3,18 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Pretty Dress
-Plug 'bling/vim-bufferline'
 Plug 'bpietravalle/vim-bolt'
 Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'
 Plug 'liuchengxu/space-vim-theme'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" display battery in the status line
+Plug 'lambdalisue/battery.vim'
+
+
 
 " Status line
-Plug 'theniceboy/eleline.vim'
 Plug 'ojroques/vim-scrollstatus'
 
 " File navigation
@@ -19,16 +23,18 @@ Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
 
 " Taglist
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
 
 " Plug 'SirVer/ultisnips'
-Plug 'theniceboy/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Undo Tree
 Plug 'mbbill/undotree'
 
+" NerdTree
+Plug 'preservim/nerdtree'
+
 " Git
-Plug 'airblade/vim-gitgutter'
 Plug 'cohama/agit.vim'
 
 " Autoformat
@@ -67,13 +73,7 @@ Plug 'luochen1990/rainbow'
 Plug 'mg979/vim-xtabline'
 Plug 'wincent/terminus'
 
-" Other useful utilities
-Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
-
-" theme
-Plug 'theniceboy/nvim-deus'
-Plug 'theniceboy/eleline.vim'
-Plug 'ojroques/vim-scrollstatus'
+" Plug 'liuchengxu/eleline.vim'
 Plug 'sainnhe/sonokai'
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}

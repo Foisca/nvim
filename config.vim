@@ -8,10 +8,44 @@ color one
 set re=0
 set termguicolors " enable true colors support
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let ayucolor="mirage"
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 let g:one_allow_italics = 1
+
+"===
+"====vim-hybrid-material===
+"===
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap nf :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+"===
+"====vim-hybrid-material===
+"===
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
+
+
+"===
+"====vim-airline
+"===
+" Enable the plug(default is disabled)
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+
+"===
+"====vim-battery
+"===
+set statusline=...%{battery#component()}...
+set tabline=...%{battery#component()}...
+let g:battery#update_tabline = 1    " For tabline.
+let g:battery#update_statusline = 1 " For statusline.
 
 
 "===
@@ -21,22 +55,18 @@ let g:airline_theme = "hybrid"
 
 hi NonText ctermfg=gray guifg=grey10
 
-" oceanic-next configuration begin
-"if (has("termguicolors"))
-"set termguicolors
-"endif
-syntax enable
-"colorscheme OceanicNext
-"" oceanic-next configuration end
+if (has("termguicolors"))
+set termguicolors
+endif
 
-"hi SpecialKey ctermfg=blue guifg=grey70
+syntax enable
 
 " ===
 " === eleline.vim
 " ===
-set laststatus=2
-let g:eleline_powerline_fonts = 1
-let g:elenline_slim           = 1
+" set laststatus=2
+" let g:eleline_powerline_fonts = 1
+" let g:elenline_slim           = 1
 
 " ==
 " == GitGutter
@@ -126,29 +156,6 @@ let g:bullets_enabled_file_types = [
 			\ 'scratch'
 			\]
 
-" ===
-" === Vista.vim
-" ===
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-let g:vista_default_executive = 'ctags'
-let g:vista#renderer#enable_icon = 1
-let g:vista#renderer#icons = {
-			\   "function": "\uf794",
-			\   "variable": "\uf71b",
-			\  }
-
-let g:scrollstatus_size = 15
-
-
-" ===
-" === vimtex
-" ===
-"let g:vimtex_view_method        = ''
-let g:vimtex_view_general_viewer = 'llpp'
-let g:vimtex_mappings_enabled    = 0
-let g:vimtex_text_obj_enabled    = 0
-let g:vimtex_motion_enabled      = 0
-let maplocalleader               = ' '
 
 " ===
 " === vim-go
@@ -231,7 +238,6 @@ function! s:CBReturnCount(count) abort
 	endif
 endfunction
 
-
 " ===
 " === vim-easymotion
 " ===
@@ -278,11 +284,6 @@ autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 let g:rainbow_active = 1
 
 " ===
-" === bufferline
-" ===
-let g:bufferline_inactive_highlight = 'StatusLineNC'
-
-" ===
 " === xtabline
 " ===
 let g:xtabline_settings                    = {}
@@ -292,6 +293,25 @@ let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first    = 1
 noremap to :XTabCycleMode<CR>
 noremap \p :echo expand('%:p')<CR>
+
+let g:xtabline_settings.icons = {
+	\'pin': '📌',
+	\'star': '★',
+	\'book': '📖',
+	\'lock': '🔒',
+	\'hammer': '🔨',
+	\'tick': '✔',
+	\'cross': '✖',
+	\'warning': '!',
+	\'menu': '☰',
+	\'apple': '🍎',
+	\'linux': '🐧',
+	\'windows': '⌘',
+	\'git': 'G',
+	\'palette': '🎨',
+	\'lens': '🔍',
+	\'flag': '🏁',
+	\}
 
 " ===
 " === suda.vim
@@ -474,10 +494,5 @@ imap <C-e> <Plug>(coc-snippets-expand-jump)
 let g:snips_author = 'Yep Chingyu'
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
-" ===
-" autopairs
-" ===
 
-
-"
 " ===================== End of Plugin Settings =====================

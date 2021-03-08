@@ -9,8 +9,6 @@ set fileencodings=utf-8,gbk,latin1
 "|_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|
 "
 " Foisca's NeoVim init.vim file
-" ===
-" === Auto load for first time uses
 
 "some source
 source ~/.config/nvim/cursor.vim
@@ -26,6 +24,9 @@ noremap <leader>ev :vsplit $MYVIMRC<cr>
 noremap <leader>ep :vsplit ~/.config/nvim/plug.vim<cr>
 noremap <leader>ef :vsplit ~/.config/nvim/functions.vim<cr>
 noremap <leader>ec :vsplit ~/.config/nvim/config.vim<cr>
+
+" set statusline=%{t\ %y\ format:\ %{&ff};\ [%c,%l]}
+
 
 "set clipboard=unnamedplus
 let &t_ut=''
@@ -46,7 +47,6 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 set list
-set listchars=tab:\|\ ,trail:▫
 set scrolloff=4
 set ttimeoutlen=0
 set notimeout
@@ -83,8 +83,6 @@ endif
 set colorcolumn=100
 set updatetime=100
 set virtualedit=block
-
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
 " ===
